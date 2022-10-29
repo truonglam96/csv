@@ -1,4 +1,4 @@
-import {inject} from '@loopback/core';
+import { inject } from '@loopback/core';
 import {
   Request,
   RestBindings,
@@ -7,7 +7,9 @@ import {
   ResponseObject,
   param,
 } from '@loopback/rest';
+import { type } from 'os';
 import { ClevertabService } from '../services';
+import data from './dataaaa.json'
 
 /**
  * OpenAPI response for ping()
@@ -20,13 +22,13 @@ const PING_RESPONSE: ResponseObject = {
         type: 'object',
         title: 'PingResponse',
         properties: {
-          greeting: {type: 'string'},
-          date: {type: 'string'},
-          url: {type: 'string'},
+          greeting: { type: 'string' },
+          date: { type: 'string' },
+          url: { type: 'string' },
           headers: {
             type: 'object',
             properties: {
-              'Content-Type': {type: 'string'},
+              'Content-Type': { type: 'string' },
             },
             additionalProperties: true,
           },
@@ -43,7 +45,7 @@ export class PingController {
   constructor(
     @inject(RestBindings.Http.REQUEST) private req: Request,
     @inject('services.ClevertabService') protected clevertabService: ClevertabService,
-    ) {}
+  ) { }
 
   // Map to `GET /ping`
   // @get('/ping')
@@ -76,23 +78,23 @@ export class PingController {
       }
     }
 
-    let lst: any = await this.clevertabService.GetListCampaign(csrf,cookie)
+    let lst: any = await this.clevertabService.GetListCampaign(csrf, cookie)
     let arr: any = []
     let count = 0
     for (const iterator of JSON.parse(lst.body).targets) {
       let id = iterator._id
       let name = iterator.name
-      console.log('process... '+ count + '/' + JSON.parse(lst.body).targets.length);
+      console.log('process... ' + count + '/' + JSON.parse(lst.body).targets.length);
       console.log(name);
       count++;
-      let details: any = await this.clevertabService.GetDetailCampaign(csrf,cookie,id,from,to);
-      if(details.body != '{ "All" : { }}'){
-        let obj : any = []
-        let split1:any = JSON.stringify(JSON.parse(details.body).All).split('"2')
+      let details: any = await this.clevertabService.GetDetailCampaign(csrf, cookie, id, from, to);
+      if (details.body != '{ "All" : { }}') {
+        let obj: any = []
+        let split1: any = JSON.stringify(JSON.parse(details.body).All).split('"2')
         for (const iterator of split1) {
-          if(iterator != '{'){
-            let split2:any = iterator.split('":{')
-            let sent = JSON.parse(('{'+split2[1]).replace('}}','}').replace('},','}'))
+          if (iterator != '{') {
+            let split2: any = iterator.split('":{')
+            let sent = JSON.parse(('{' + split2[1]).replace('}}', '}').replace('},', '}'))
             arr.push({
               date: '2' + split2[0],
               sent: sent.sent,
@@ -102,7 +104,7 @@ export class PingController {
             console.log(new Date().getTime());
           }
         }
-      }else{
+      } else {
         arr.push({
           date: '0',
           sent: '0',
@@ -111,7 +113,16 @@ export class PingController {
         })
       }
     }
-    console.log('Done !!!');    
-    return {};
+    
+    var XLSX = require("xlsx");
+    const date = new Date();
+    const nameGenerate = 'FileExport_Campaign_' + Date.parse(date.toString()) + '.xlsx';
+    let fileName = `public/` + nameGenerate;
+    const ws: any = XLSX.utils.json_to_sheet(arr);
+    const wb: any = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Data');
+    XLSX.writeFile(wb, fileName);
+    console.log('Done !!!');
+    return {Status: 'Successfuly !!!'};
   }
 }
