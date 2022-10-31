@@ -60,7 +60,7 @@ export class PingController {
   //   };
   // }
 
-  @get('/test')
+  @get('/download')
   @response(200, PING_RESPONSE)
   async find(
     @param.query.string('from') from: string,
