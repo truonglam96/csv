@@ -83,6 +83,7 @@ export class PingController {
     let count = 0
     for (const iterator of JSON.parse(lst.body).targets) {
       let id = iterator._id
+      
       let name = iterator.name
       console.log('process... ' + count + '/' + JSON.parse(lst.body).targets.length);
       console.log(name);
@@ -99,7 +100,8 @@ export class PingController {
               date: '2' + split2[0],
               sent: sent.sent,
               id: id,
-              name: name
+              name: name,
+              error: sent.errors
             })
             console.log(new Date().getTime());
           }
@@ -109,7 +111,8 @@ export class PingController {
           date: '0',
           sent: '0',
           id: id,
-          name: name
+          name: name,
+          error: ''
         })
       }
     }
