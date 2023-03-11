@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+      type="text/javascript"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <h2>Stacked form</h2>
+      <form action="/action_page.php">
+        <div class="mb-3 mt-3">
+          <label for="email">from:</label>
+          <input type="text" class="form-control" id="from" name="email" />
+        </div>
+        <div class="mb-3">
+          <label for="pwd">to:</label>
+          <input type="text" class="form-control" id="to" name="pswd" />
+        </div>
+        <div class="mb-3">
+          <label for="pwd">param:</label>
+          <input type="text" class="form-control" id="param" name="pswd" />
+        </div>
+        <div class="form-check mb-3">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember" />
+            Remember me
+          </label>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="test();">
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <script>
+      async function test() {
+        
+      }
+
+      async function getListJourney() {
+        let cookie =
+          "JSESSIONID=node01ut1c1pj4xv7319oja1o7u106e35541.node0; G_ENABLED_IDPS=google; WZRK_G=96838d400f2040a0bf0209e66a770535; G_AUTHUSER_H=1; wzrk_lcbid=442; WSESSIONID=yo3M9XxtqI7SK689dQ87U5VoelhHTv3AnGudaCy%MQ2hSBuVh7dE3iAmZcQU71jBwDBGOZ9IyULXKnEM7HHhfiVBsBZtuUcMpyDnLr5Ss2Qjvq1K8dSosB72XlqlAu1fYlLD%nW28fBkWfSHnVHgc7M1703fhHimUCQYg%683nBD80; wzrk_flags=%7B%22test-app%22%3Afalse%2C%22campaigns2%22%3Atrue%2C%22journeys2%22%3Atrue%2C%22web-inbox%22%3Afalse%2C%22segments-bulk-delete%22%3Afalse%2C%22vs-editor%22%3Afalse%2C%22enhanced_limit_cl%22%3Afalse%2C%22click-tracking%22%3Afalse%2C%22sms-nexmoct-enabled%22%3Afalse%2C%22clevertap-wa-bsp%22%3Afalse%2C%22best-time-v2-enhancement%22%3Afalse%2C%22one-hour-export%22%3Afalse%2C%22cr-enhancements%22%3Afalse%2C%22notification-event-drop-down%22%3Afalse%2C%22product-experiences-v1%22%3Atrue%2C%22product-experiences-v2%22%3Afalse%2C%22reminder%22%3Afalse%2C%22cascade%22%3Afalse%2C%22push-webhooks-kv-list%22%3Afalse%2C%22appsflyer-onelink-setup%22%3Afalse%2C%22direct-call%22%3Afalse%2C%22cross-node-personalization-v1%22%3Afalse%2C%22isNewExportsUI%22%3Atrue%2C%22splitter%22%3Afalse%2C%22multi-app%22%3Afalse%2C%22web-nativedisplay%22%3Afalse%2C%22test-flagged-feature-region%22%3Atrue%2C%22isNewCampaignReportExportUI%22%3Afalse%2C%22test-flagged-feature%22%3Afalse%2C%22amp-enabled%22%3Afalse%2C%22isNewCSVUploadUI%22%3Afalse%7D; secret_csrf=eda245c0-df63-45c8-907d-42a7acf16e95; csrf=-1299385635; eventsListTs=; segmentListTs=1677769836958; WZRK_S_R74-ZWR-R44Z=%7B%22p%22%3A2%2C%22s%22%3A1678446713%2C%22t%22%3A1678446734%7D; _hjSessionUser_2030532=eyJpZCI6Ijg1MmYxMjUyLTkyZTItNTQ4Yy04MGRlLTIzZjIxYTA2MmQ3OCIsImNyZWF0ZWQiOjE2Nzg0NDY3MzUwMTksImV4aXN0aW5nIjpmYWxzZX0=; _hjFirstSeen=1; _hjIncludedInSessionSample_2030532=0; _hjSession_2030532=eyJpZCI6ImY1MThkMGM3LWViZGUtNGIyNy1iNDZmLTBiZDNmYmQxZDU2YyIsImNyZWF0ZWQiOjE2Nzg0NDY3MzUwMjYsImluU2FtcGxlIjpmYWxzZX0=; _hjIncludedInPageviewSample=1; _hjAbsoluteSessionInProgress=0; _hjHasCachedUserAttributes=true; AWSALB=otVA3BKI1WK78LXKyXI4Prx3j4QHATKdCEVFFj9Sx5J56lpxyeJw/MeeaNENEiTiVzTZoLFu/ssJgupa3n4yiUhCrWRHNuRlG2qDxOTu6AS/cvBKhUKEmGd+X7ge; AWSALBCORS=otVA3BKI1WK78LXKyXI4Prx3j4QHATKdCEVFFj9Sx5J56lpxyeJw/MeeaNENEiTiVzTZoLFu/ssJgupa3n4yiUhCrWRHNuRlG2qDxOTu6AS/cvBKhUKEmGd+X7ge";
+        let csrf = "-1299385635";
+
+        let arrRes;
+        var myHeaders = new Headers();
+        myHeaders.append("authority", "eu1.dashboard.clevertap.com");
+        myHeaders.append("accept", "application/json, text/plain, */*");
+        myHeaders.append(
+          "accept-language",
+          "en-US,en;q=0.9,vi-VN;q=0.8,vi;q=0.7,fr-FR;q=0.6,fr;q=0.5"
+        );
+        myHeaders.append(
+          "cookie",
+          "WZRK_G=96838d400f2040a0bf0209e66a770535; JSESSIONID=node01gie75sysgyb7rfwl8uio3qb444680.node0; G_ENABLED_IDPS=google; G_AUTHUSER_H=1; wzrk_lcbid=123; WSESSIONID=DiyzHBHDfswY8Zxf97CuljoCRXPP8C7yTaLDwU91X8XY256giUd5sj4srPHU62vljotWYqL4tMeK6t3aruE3%Yh25vFVp3H6bi6k07%ff2LeBHV8azNNp3t19XeZrM%vD2nIBHs1l3GDlLO4BdmYiJYli6rjfm7u14qv1f464TQ%sK3JLDYO; wzrk_flags=%7B%22test-app%22%3Afalse%2C%22campaigns2%22%3Atrue%2C%22journeys2%22%3Atrue%2C%22web-inbox%22%3Afalse%2C%22segments-bulk-delete%22%3Afalse%2C%22vs-editor%22%3Afalse%2C%22enhanced_limit_cl%22%3Afalse%2C%22click-tracking%22%3Afalse%2C%22sms-nexmoct-enabled%22%3Afalse%2C%22clevertap-wa-bsp%22%3Afalse%2C%22best-time-v2-enhancement%22%3Afalse%2C%22one-hour-export%22%3Afalse%2C%22cr-enhancements%22%3Afalse%2C%22notification-event-drop-down%22%3Afalse%2C%22product-experiences-v1%22%3Atrue%2C%22product-experiences-v2%22%3Afalse%2C%22reminder%22%3Afalse%2C%22cascade%22%3Afalse%2C%22push-webhooks-kv-list%22%3Afalse%2C%22appsflyer-onelink-setup%22%3Afalse%2C%22direct-call%22%3Afalse%2C%22cross-node-personalization-v1%22%3Afalse%2C%22isNewExportsUI%22%3Atrue%2C%22splitter%22%3Afalse%2C%22multi-app%22%3Afalse%2C%22web-nativedisplay%22%3Afalse%2C%22test-flagged-feature-region%22%3Atrue%2C%22isNewCampaignReportExportUI%22%3Afalse%2C%22test-flagged-feature%22%3Afalse%2C%22amp-enabled%22%3Afalse%2C%22isNewCSVUploadUI%22%3Afalse%7D; secret_csrf=b695ec7a-4243-4ad6-b60d-eea727c927c4; csrf=1737483705; eventsListTs=; segmentListTs=1677769836958; _hjSessionUser_2030532=eyJpZCI6ImExNzRhOTIyLWJjNzYtNTIyOS05OTYxLWJlNjRkODVhYzEwMyIsImNyZWF0ZWQiOjE2Nzg0NjExNjUyNDAsImV4aXN0aW5nIjpmYWxzZX0=; _hjFirstSeen=1; _hjIncludedInSessionSample_2030532=1; _hjSession_2030532=eyJpZCI6Ijk3YTQwZWY3LWFlNmEtNGQ4NS05ZDhjLWZiN2ZjMzBlZTA1OSIsImNyZWF0ZWQiOjE2Nzg0NjExNjY0MDIsImluU2FtcGxlIjp0cnVlfQ==; _hjIncludedInPageviewSample=1; _hjAbsoluteSessionInProgress=0; _hjHasCachedUserAttributes=true; _hjUserAttributesHash=b6fa9052e8668f31095f0b013f885eac; WZRK_S_R74-ZWR-R44Z=%7B%22s%22%3A1678461091%2C%22t%22%3A1678461166%2C%22p%22%3A2%7D; AWSALB=7+R0hIQnkEtKn1JM7YP5mxexT48c67jpTf/Onmoj8l4fRP5OIBIw1Byw8OZVGl0KoJdsepqf3/DvpXwov5Sh/u2yUrVvQc6JMVH2g6+TG5ewZjbBzn2cfXqU5mpL; AWSALBCORS=7+R0hIQnkEtKn1JM7YP5mxexT48c67jpTf/Onmoj8l4fRP5OIBIw1Byw8OZVGl0KoJdsepqf3/DvpXwov5Sh/u2yUrVvQc6JMVH2g6+TG5ewZjbBzn2cfXqU5mpL; WSESSIONID=DGqzTVHW3sjY8W9fqICuVj5sRPZPcK7Qaaz0wUI1cPXhb5X0iEO5xe4kxPEk6ikllXtQ3qXbtzRKTU3lVuJ5%0g2ZEFVd3MRbRfkZY%It25ZBVw8k1NfM3PF9GmZje%kj2mVBwQ1ocGLULTUB0nY6IYKo61efUlufBq0wfVZ4z6%oP3x5DDV; AWSALB=EbetfEoXGjVi1fBH1LvQkzMHV3XZy+/sG1bb9J2DwkZVxKlqt/LLL/Z2kfpi5qVu/qIXIZ6DBHHSQtTA6Fro5W9mGieYF0/cfLN9FAYbT2dmluz1BAFozbxGIcZ3; AWSALBCORS=EbetfEoXGjVi1fBH1LvQkzMHV3XZy+/sG1bb9J2DwkZVxKlqt/LLL/Z2kfpi5qVu/qIXIZ6DBHHSQtTA6Fro5W9mGieYF0/cfLN9FAYbT2dmluz1BAFozbxGIcZ3; JSESSIONID=node0d83zkt53nosy1ihsfh8g5tauu44534.node0"
+        );
+        myHeaders.append(
+          "referer",
+          "https://eu1.dashboard.clevertap.com/44K-948-K85Z/journeys/"
+        );
+        myHeaders.append(
+          "sec-ch-ua",
+          '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
+        );
+        myHeaders.append("sec-ch-ua-mobile", "?0");
+        myHeaders.append("sec-ch-ua-platform", '"Windows"');
+        myHeaders.append("sec-fetch-dest", "empty");
+        myHeaders.append("sec-fetch-mode", "cors");
+        myHeaders.append("sec-fetch-site", "same-origin");
+        myHeaders.append(
+          "user-agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+        );
+        myHeaders.append("x-clevertap-csrf-token", "1737483705");
+
+        var requestOptions = {
+          method: "GET",
+          headers: myHeaders,
+          redirect: "follow",
+        };
+
+        await fetch(
+          'https://eu1.dashboard.clevertap.com/44K-948-K85Z/json/targeting/journeys/load?q={"pageNumber":1,"prefiltered":null,"searchKeyword":null,"sortField":"updated_ts","sortOrder":-1,"stc":1,"dateFrom":"20230223","dateTo":"20230325"}&uc=1&requestTs=1678461166825',
+          requestOptions
+        )
+          .then((response) => response.text())
+          .then((result) => {
+            arrRes = JSON.parse(result);
+          })
+          .catch((error) => console.log("error", error));
+
+        return arrRes;
+      }
+
+      async function getIDNodeStats() {
+        let arrRes;
+        var myHeaders = new Headers();
+        myHeaders.append("authority", "eu1.dashboard.clevertap.com");
+        myHeaders.append("accept", "application/json, text/plain, */*");
+        myHeaders.append(
+          "accept-language",
+          "en-US,en;q=0.9,vi-VN;q=0.8,vi;q=0.7,fr-FR;q=0.6,fr;q=0.5"
+        );
+        myHeaders.append("content-type", "application/json;charset=UTF-8");
+        myHeaders.append(
+          "cookie",
+          "wzrk_lcbid=422; _hjSessionUser_2030532=eyJpZCI6IjYxM2JkOWJiLTE3Y2UtNWEwMS1hNzJkLWZlYmY1MTBhMmY2MSIsImNyZWF0ZWQiOjE2NjY3ODE1NDI2OTksImV4aXN0aW5nIjp0cnVlfQ==; _hjSessionUser_3019028=eyJpZCI6IjI2YjE1MWJkLTZhZmMtNWZiZC1hNzYwLTM3ODhkNGEyMmI3ZiIsImNyZWF0ZWQiOjE2NjY3ODIyNjAxODMsImV4aXN0aW5nIjp0cnVlfQ==; __auc=67a9ad2618417b4f36d93d0b418; _CEFT=Q%3D%3D%3D; _uetvid=2001c50055b011ed80780541d0218245; _ce.s=v~054ad192842eaae021a33d4446eccbb0b938e891~vpv~0~v11.rlc~1666845045975~ir~1~gtrk.la~l9qki4un; __hstc=96753472.7a4ef9c35c945ab6399763e9708a7b92.1666845045502.1666845045502.1666845045502.1; hubspotutk=7a4ef9c35c945ab6399763e9708a7b92; insent-user-id=kUYDfDIoiUhaLjzEE1666845047132; amp_b93379=Q8vPz0SkSLC9AMrniC4JLs...1ggbpnk2u.1ggbrt7rv.0.0.0; WZRK_G=2b6da7d1f9984c0a8a32a10e8eccea18; _ga_T5SN9P2G3E=GS1.1.1666985293.4.1.1666985294.59.0.0; G_ENABLED_IDPS=google; JSESSIONID=node01ukbsk8gtraqcrmh7bmd4dn7m30862.node0; G_AUTHUSER_H=1; _ga=GA1.2.1428195996.1666782260; _gid=GA1.2.247415832.1678440421; _hjAbsoluteSessionInProgress=1; _ga_7N3L311M8B=GS1.1.1678440421.1.1.1678440440.41.0.0; wzrk_flags=%7B%22test-app%22%3Afalse%2C%22campaigns2%22%3Atrue%2C%22journeys2%22%3Atrue%2C%22web-inbox%22%3Afalse%2C%22segments-bulk-delete%22%3Afalse%2C%22vs-editor%22%3Afalse%2C%22enhanced_limit_cl%22%3Afalse%2C%22click-tracking%22%3Afalse%2C%22sms-nexmoct-enabled%22%3Afalse%2C%22clevertap-wa-bsp%22%3Afalse%2C%22best-time-v2-enhancement%22%3Afalse%2C%22one-hour-export%22%3Afalse%2C%22cr-enhancements%22%3Afalse%2C%22notification-event-drop-down%22%3Afalse%2C%22product-experiences-v1%22%3Atrue%2C%22product-experiences-v2%22%3Afalse%2C%22reminder%22%3Afalse%2C%22cascade%22%3Afalse%2C%22push-webhooks-kv-list%22%3Afalse%2C%22appsflyer-onelink-setup%22%3Afalse%2C%22direct-call%22%3Afalse%2C%22cross-node-personalization-v1%22%3Afalse%2C%22isNewExportsUI%22%3Atrue%2C%22splitter%22%3Afalse%2C%22multi-app%22%3Afalse%2C%22web-nativedisplay%22%3Afalse%2C%22test-flagged-feature-region%22%3Atrue%2C%22isNewCampaignReportExportUI%22%3Afalse%2C%22test-flagged-feature%22%3Afalse%2C%22amp-enabled%22%3Afalse%2C%22isNewCSVUploadUI%22%3Afalse%7D; eventsListTs=; segmentListTs=1677769836958; _hjIncludedInSessionSample_2030532=1; _hjSession_2030532=eyJpZCI6IjQ3MmI5NTJjLWRkOTEtNGZiNi1iNzU2LWMwM2E0ZmMxYjBhOCIsImNyZWF0ZWQiOjE2Nzg0NDA0NjExNzUsImluU2FtcGxlIjp0cnVlfQ==; _hjIncludedInPageviewSample=1; _hjHasCachedUserAttributes=true; _hjUserAttributesHash=b6fa9052e8668f31095f0b013f885eac; secret_csrf=e1ae529e-caa2-433e-baee-9aa8c3d8c8f0; csrf=-1463654434; WSESSIONID=AbrSfiJuc65gpksYPvsIX2IeDUIdFVwNfgJZF0HrGkk55bMxHnKaLiLdZiNFjqZ1ZGVnB55bIU2vLEmZ3Voeam3j8A%R12bEFkuGfMAgeRxCa4BbKvFrXwftmOeJUW97id7AVptWVycY0DlDGA06CR0v7mcPsRg%WS3jrD0P; AWSALB=1z6/xC//L/8r+j8NccR84bSKs/pVdNyjBbyt50aDKdOazUh1rlZKhVLxDSQTny6YCaEvi+D2VMWhsyBI1rTbn5KSQuCI+jXGAdI7/p/dc+wHT+UMEsx2sdBBsEzl; AWSALBCORS=1z6/xC//L/8r+j8NccR84bSKs/pVdNyjBbyt50aDKdOazUh1rlZKhVLxDSQTny6YCaEvi+D2VMWhsyBI1rTbn5KSQuCI+jXGAdI7/p/dc+wHT+UMEsx2sdBBsEzl; WSESSIONID=ANISKCJ3x6ijpZqY5DsCE2y7Dz8dQBwlNg3vFg0rgzkFEbHjHKXaMpLDlizbjPH1l9Vqn5b8IeZvxCmCsVruaTbjPQ%qj219FHXGx2AYaR3qa79biHFYXwYKmF8Jvr97edsTVQLWERc1DD3OGRZ6ri0mVmj6sWJ%pc3IRDNC; AWSALB=KZSJUiRJl7JC2ZTdSlwdlCoJvTfaYLbylWU9ZS0DpeO+aLcbwvumpc9ghT8KYYgF1OBiapyjWllHS40KB+QUnx0KLUeWlx0IXzSCVjd2U+njIrP8hNDwj0k1Cmhl; AWSALBCORS=KZSJUiRJl7JC2ZTdSlwdlCoJvTfaYLbylWU9ZS0DpeO+aLcbwvumpc9ghT8KYYgF1OBiapyjWllHS40KB+QUnx0KLUeWlx0IXzSCVjd2U+njIrP8hNDwj0k1Cmhl"
+        );
+        myHeaders.append("origin", "https://eu1.dashboard.clevertap.com");
+        myHeaders.append(
+          "referer",
+          "https://eu1.dashboard.clevertap.com/44K-948-K85Z/journeys/journey/85/report/journey-stats"
+        );
+        myHeaders.append(
+          "sec-ch-ua",
+          '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
+        );
+        myHeaders.append("sec-ch-ua-mobile", "?0");
+        myHeaders.append("sec-ch-ua-platform", '"Windows"');
+        myHeaders.append("sec-fetch-dest", "empty");
+        myHeaders.append("sec-fetch-mode", "cors");
+        myHeaders.append("sec-fetch-site", "same-origin");
+        myHeaders.append(
+          "user-agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+        );
+        myHeaders.append("x-clevertap-csrf-token", "-1463654434");
+
+        var raw = '{"journeyId":85,"fromDate":"20230208","toDate":"20230310"}';
+
+        var requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: raw,
+          redirect: "follow",
+        };
+
+        await fetch(
+          "https://eu1.dashboard.clevertap.com/44K-948-K85Z/json/interact/journeys/stats?id=85&from=20230208&to=20230310&uc=1&requestTs=1678442241031",
+          requestOptions
+        )
+          .then((response) => response.text())
+          .then((result) => {
+            arrRes = JSON.parse(result);
+          })
+          .catch((error) => console.log("error", error));
+        return arrRes;
+      }
+
+      async function getElement() {
+        let arrRes;
+        var myHeaders = new Headers();
+        myHeaders.append("authority", "eu1.dashboard.clevertap.com");
+        myHeaders.append("accept", "application/json, text/plain, */*");
+        myHeaders.append(
+          "accept-language",
+          "en-US,en;q=0.9,vi-VN;q=0.8,vi;q=0.7,fr-FR;q=0.6,fr;q=0.5"
+        );
+        myHeaders.append("content-type", "application/x-www-form-urlencoded");
+        myHeaders.append(
+          "cookie",
+          "wzrk_lcbid=422; _hjSessionUser_2030532=eyJpZCI6IjYxM2JkOWJiLTE3Y2UtNWEwMS1hNzJkLWZlYmY1MTBhMmY2MSIsImNyZWF0ZWQiOjE2NjY3ODE1NDI2OTksImV4aXN0aW5nIjp0cnVlfQ==; _hjSessionUser_3019028=eyJpZCI6IjI2YjE1MWJkLTZhZmMtNWZiZC1hNzYwLTM3ODhkNGEyMmI3ZiIsImNyZWF0ZWQiOjE2NjY3ODIyNjAxODMsImV4aXN0aW5nIjp0cnVlfQ==; __auc=67a9ad2618417b4f36d93d0b418; _CEFT=Q%3D%3D%3D; _uetvid=2001c50055b011ed80780541d0218245; _ce.s=v~054ad192842eaae021a33d4446eccbb0b938e891~vpv~0~v11.rlc~1666845045975~ir~1~gtrk.la~l9qki4un; __hstc=96753472.7a4ef9c35c945ab6399763e9708a7b92.1666845045502.1666845045502.1666845045502.1; hubspotutk=7a4ef9c35c945ab6399763e9708a7b92; insent-user-id=kUYDfDIoiUhaLjzEE1666845047132; amp_b93379=Q8vPz0SkSLC9AMrniC4JLs...1ggbpnk2u.1ggbrt7rv.0.0.0; WZRK_G=2b6da7d1f9984c0a8a32a10e8eccea18; _ga_T5SN9P2G3E=GS1.1.1666985293.4.1.1666985294.59.0.0; G_ENABLED_IDPS=google; JSESSIONID=node01ukbsk8gtraqcrmh7bmd4dn7m30862.node0; G_AUTHUSER_H=1; _ga=GA1.2.1428195996.1666782260; _gid=GA1.2.247415832.1678440421; _hjSession_3019028=eyJpZCI6IjQ1ZTlkYjE2LTgzMGMtNGQ4MC04ZTExLWQ0NGRlMDQwMjJlMCIsImNyZWF0ZWQiOjE2Nzg0NDA0MjEyNjgsImluU2FtcGxlIjp0cnVlfQ==; _hjAbsoluteSessionInProgress=1; _ga_7N3L311M8B=GS1.1.1678440421.1.1.1678440440.41.0.0; wzrk_flags=%7B%22test-app%22%3Afalse%2C%22campaigns2%22%3Atrue%2C%22journeys2%22%3Atrue%2C%22web-inbox%22%3Afalse%2C%22segments-bulk-delete%22%3Afalse%2C%22vs-editor%22%3Afalse%2C%22enhanced_limit_cl%22%3Afalse%2C%22click-tracking%22%3Afalse%2C%22sms-nexmoct-enabled%22%3Afalse%2C%22clevertap-wa-bsp%22%3Afalse%2C%22best-time-v2-enhancement%22%3Afalse%2C%22one-hour-export%22%3Afalse%2C%22cr-enhancements%22%3Afalse%2C%22notification-event-drop-down%22%3Afalse%2C%22product-experiences-v1%22%3Atrue%2C%22product-experiences-v2%22%3Afalse%2C%22reminder%22%3Afalse%2C%22cascade%22%3Afalse%2C%22push-webhooks-kv-list%22%3Afalse%2C%22appsflyer-onelink-setup%22%3Afalse%2C%22direct-call%22%3Afalse%2C%22cross-node-personalization-v1%22%3Afalse%2C%22isNewExportsUI%22%3Atrue%2C%22splitter%22%3Afalse%2C%22multi-app%22%3Afalse%2C%22web-nativedisplay%22%3Afalse%2C%22test-flagged-feature-region%22%3Atrue%2C%22isNewCampaignReportExportUI%22%3Afalse%2C%22test-flagged-feature%22%3Afalse%2C%22amp-enabled%22%3Afalse%2C%22isNewCSVUploadUI%22%3Afalse%7D; eventsListTs=; segmentListTs=1677769836958; _hjIncludedInSessionSample_2030532=1; _hjSession_2030532=eyJpZCI6IjQ3MmI5NTJjLWRkOTEtNGZiNi1iNzU2LWMwM2E0ZmMxYjBhOCIsImNyZWF0ZWQiOjE2Nzg0NDA0NjExNzUsImluU2FtcGxlIjp0cnVlfQ==; _hjIncludedInPageviewSample=1; _hjHasCachedUserAttributes=true; _hjUserAttributesHash=b6fa9052e8668f31095f0b013f885eac; secret_csrf=e1ae529e-caa2-433e-baee-9aa8c3d8c8f0; csrf=-1463654434; WZRK_S_R74-ZWR-R44Z=%7B%22p%22%3A6%2C%22s%22%3A1678440296%2C%22t%22%3A1678440640%7D; AWSALB=oPXyq3hDb1TKw5ETV9MTaE7DtW+6ZZoF9Ki4f/lEqbdMWZjP8Oa9kdB+NnQz0Z+racZKhmcvp4CuDF4Ih/8pdqrrbAbA/FaYWmWtaASOiI435Cp8lichhsPVvcpQ; AWSALBCORS=oPXyq3hDb1TKw5ETV9MTaE7DtW+6ZZoF9Ki4f/lEqbdMWZjP8Oa9kdB+NnQz0Z+racZKhmcvp4CuDF4Ih/8pdqrrbAbA/FaYWmWtaASOiI435Cp8lichhsPVvcpQ; WSESSIONID=AU2SXRJ4r6s9pk5Y2Psst2CiDgadcJwbvgxPFUvrRSkTTbVPHAGawKLM9i4pjwY1unV4n5gXIZPvTemNIVdAa6yjUj%nY20RFqRGW5Af9RZBa1nbL6FFIwtbmiMJh69oUd2PVqJWv6cpeD8XGDn6XF03Rm0jsXV%R63IoDmm; WSESSIONID=AwWS3CJgZ6f8plfYlCsR12XCDEjdI9wGag2nFTHrvmkzJbe6HFrahmLVBig2j5A1QVVHb5aUIEwvp0mmyVE7aTKjc5%wj29DFptGRpA0jRZeaNeb0QF4zwpzmaaJjk97CdVUVGEWn6cBeDTkG566IJ02TmjCspP%GF3fkD23; AWSALB=4OunkHLP2WI8yB0Zq7eCnlnZteGdbp29nuTbBF8zlLVHC1++1frTHV3ZzWUQe+ebiNksR1DvyiVd/Cnlf+gnREBB1MNK7/OTjIb2w/xLt3R8nQQSgXJPrSB85VxP; AWSALBCORS=4OunkHLP2WI8yB0Zq7eCnlnZteGdbp29nuTbBF8zlLVHC1++1frTHV3ZzWUQe+ebiNksR1DvyiVd/Cnlf+gnREBB1MNK7/OTjIb2w/xLt3R8nQQSgXJPrSB85VxP"
+        );
+        myHeaders.append("origin", "https://eu1.dashboard.clevertap.com");
+        myHeaders.append(
+          "referer",
+          "https://eu1.dashboard.clevertap.com/44K-948-K85Z/journeys/journey/47/report/node-stats"
+        );
+        myHeaders.append(
+          "sec-ch-ua",
+          '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"'
+        );
+        myHeaders.append("sec-ch-ua-mobile", "?0");
+        myHeaders.append("sec-ch-ua-platform", '"Windows"');
+        myHeaders.append("sec-fetch-dest", "empty");
+        myHeaders.append("sec-fetch-mode", "cors");
+        myHeaders.append("sec-fetch-site", "same-origin");
+        myHeaders.append(
+          "user-agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+        );
+        myHeaders.append("x-clevertap-csrf-token", "-1463654434");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("id", "25021");
+        urlencoded.append("from", "20230208");
+        urlencoded.append("to", "20230310");
+
+        var requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: urlencoded,
+          redirect: "follow",
+        };
+
+        await fetch(
+          "https://eu1.dashboard.clevertap.com/44K-948-K85Z/json/notification/calculateTrend.html?uc=1&requestTs=1678441392375",
+          requestOptions
+        )
+          .then((response) => response.text())
+          .then((result) => {
+            arrRes = JSON.parse(result);
+          })
+          .catch((error) => console.log("error", error));
+        return arrRes;
+      }
+    </script>
+  </body>
+</html>
