@@ -76,7 +76,7 @@ export class PingController {
         cookie = iterator.toString().substr(9, iterator.toString().length - 15);
       }
       if (iterator.toString().search("x-clevertap-csrf-token") == 1) {
-        csrf = iterator.toString().substr(25, iterator.toString().length - 43);
+        csrf = iterator.toString().substr(25, iterator.toString().length - 31);
       }
     }
     let lst: any = await this.clevertabService.GetListCampaign(csrf, cookie);
